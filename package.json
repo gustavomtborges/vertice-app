@@ -22,15 +22,9 @@
     "eslint-plugin-react": "^7.9.1",
     "eslint-plugin-react-native": "^3.2.1",
     "jest": "23.3.0",
-    "prettier": "1.13.7",
     "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native"
-  },
-  "prettier": {
-    "jsxBracketSameLine": true,
-    "semi": false,
-    "singleQuote": true
   }
 }
