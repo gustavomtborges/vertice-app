@@ -1,27 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { colors } from '../../styles';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.white,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+import styles from './style';
 
-const LoginPage = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Welcome to ./live
-    </Text>
-  </View>
-);
+export default class Login extends React.Component {
+  static navigationOptions = {
+    header: null,
+  }
 
-export default LoginPage;
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity>
+          <Text>
+            Login
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "154487835658",
+    "firebase_url": "https://vertice-app.firebaseio.com",
+    "project_id": "vertice-app",
+    "storage_bucket": "vertice-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154487835658:android:67b08d084a186572",
+        "android_client_info": {
+          "package_name": "net.gustavoborges.vertice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154487835658-m19rkivd4s8kji1hb8nlttq0i0661mvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IBIC56dLOvtPLGPfvfNv2lPjWNKF2WM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

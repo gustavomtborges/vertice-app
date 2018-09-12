@@ -1,4 +1,4 @@
-package com.vertice;
+package net.gustavoborges.vertice;
 
 import com.facebook.react.ReactActivity;
 
