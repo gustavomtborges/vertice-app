@@ -1,13 +1,10 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import { LoginButton } from 'react-native-fbsdk';
 
 import styles from './style';
 
-export default class Login extends React.Component {
+export default class FBLoginButton extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -15,11 +12,21 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
-          <Text>
-            Login
-          </Text>
-        </TouchableOpacity>
+        <LoginButton
+          readPermissions={['public_profile', 'email']}
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                alert(`Login failed with error: ${error.message}`);
+              } else if (result.isCancelled) {
+                alert('Login was cancelled');
+              } else {
+                alert(`Login was successful with permissions: ${result.grantedPermissions}`);
+              }
+            }
+          }
+          onLogoutFinished={() => alert('User logged out')}
+        />
       </View>
     );
   }
