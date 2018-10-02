@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { LoginButton } from 'react-native-fbsdk';
 
+import FacebookButton from './components/FacebookButton/index.android';
 import styles from './style';
 
-export default class FBLoginButton extends Component {
+export default class Login extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -12,21 +12,7 @@ export default class FBLoginButton extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LoginButton
-          readPermissions={['public_profile', 'email']}
-          onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert(`Login failed with error: ${error.message}`);
-              } else if (result.isCancelled) {
-                alert('Login was cancelled');
-              } else {
-                alert(`Login was successful with permissions: ${result.grantedPermissions}`);
-              }
-            }
-          }
-          onLogoutFinished={() => alert('User logged out')}
-        />
+        <FacebookButton />
       </View>
     );
   }
