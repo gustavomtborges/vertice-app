@@ -1,12 +1,28 @@
 import React from 'react';
-import { LoginButton } from 'react-native-fbsdk';
-import { Alert, ToastAndroid, AsyncStorage } from 'react-native';
+import PropTypes from 'prop-types';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { NavigationActions, StackActions } from 'react-navigation';
+import {
+  Alert,
+  ToastAndroid,
+  AsyncStorage,
+} from 'react-native';
 
-const saveUserAndRedirectToHome = async (username) => {
-  await AsyncStorage.setItem('@vertice:username', username);
-};
+async function saveToken(token) {
+  await AsyncStorage.setItem('@vertice:token', token);
+}
 
-const FacebookButton = () => (
+function redirectToHome(navigation) {
+  const resetAction = StackActions.reset({
+    index: 0,
+    actions: [
+      NavigationActions.navigate({ routeName: 'Home' }),
+    ],
+  });
+  navigation.dispatch(resetAction);
+}
+
+const FacebookButton = ({ navigation }) => (
   <LoginButton
     readPermissions={['public_profile', 'email']}
     onLoginFinished={
@@ -16,12 +32,20 @@ const FacebookButton = () => (
         } else if (result.isCancelled) {
           ToastAndroid.show('Login was cancelled', ToastAndroid.SHORT);
         } else {
-          const username = result.grantedPermissions.toString();
-          saveUserAndRedirectToHome(username);
+          AccessToken.getCurrentAccessToken().then((data) => {
+            saveToken(data.accessToken.toString());
+            redirectToHome(navigation);
+          });
         }
       }
     }
   />
 );
+
+FacebookButton.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func,
+  }).isRequired,
+};
 
 export default FacebookButton;

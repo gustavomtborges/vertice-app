@@ -6,7 +6,7 @@ import {
 
 import { colors } from './styles';
 import LoginPage from './pages/Login';
-import HomePage from './pages/Home';
+import RecommendationsPage from './pages/Recommendations';
 import HeaderRight from './components/HeaderRight';
 
 const createNavigation = (isLogged = false) => createStackNavigator(
@@ -15,7 +15,7 @@ const createNavigation = (isLogged = false) => createStackNavigator(
     Home: {
       screen: createBottomTabNavigator(
         {
-          Home: { screen: HomePage },
+          Recommendations: { screen: RecommendationsPage },
         },
         {
           tabBarOptions: {
