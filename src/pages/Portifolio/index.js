@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 import styles from './styles';
 
-export default class Recommendations extends React.Component {
+export default class Portifolio extends React.Component {
   static navigationOptions = {
-    title: 'Recomendações',
-    tabBarIcon: ({ tintColor }) => <Icon name="barschart" size={24} color={tintColor} />,
+    title: 'Portifólio',
+    tabBarIcon: ({ tintColor }) => <Icon name="wallet" size={24} color={tintColor} />,
   };
 
   render() {

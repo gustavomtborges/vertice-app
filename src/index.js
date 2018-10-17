@@ -11,8 +11,8 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    const username = await AsyncStorage.getItem('@vertice:username');
-    this.appLoaded(username);
+    const token = await AsyncStorage.getItem('@vertice:token');
+    this.appLoaded(token);
   }
 
   appLoaded = (username) => {

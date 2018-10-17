@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   createStackNavigator,
   createBottomTabNavigator,
@@ -7,7 +6,9 @@ import {
 import { colors } from './styles';
 import LoginPage from './pages/Login';
 import RecommendationsPage from './pages/Recommendations';
-import HeaderRight from './components/HeaderRight';
+import AnalyticsPage from './pages/Analytics';
+import PortifolioPage from './pages/Portifolio';
+import PerfilPage from './pages/Perfil';
 
 const createNavigation = (isLogged = false) => createStackNavigator(
   {
@@ -16,13 +17,27 @@ const createNavigation = (isLogged = false) => createStackNavigator(
       screen: createBottomTabNavigator(
         {
           Recommendations: { screen: RecommendationsPage },
+          Analytics: { screen: AnalyticsPage },
+          Portifolio: { screen: PortifolioPage },
+          Perfil: { screen: PerfilPage },
         },
         {
+          initialRouteName: 'Perfil',
           tabBarOptions: {
             showIcon: true,
-            showLabel: false,
+            showLabel: true,
+            labelStyle: {
+              fontSize: 14,
+              fontFamily: 'SourceSansPro',
+            },
+            tabStyle: {
+              width: 100,
+              height: 64,
+            },
             activeTintColor: colors.white,
+            inactiveTintColor: colors.dark,
             style: {
+              height: 64,
               backgroundColor: colors.secundary,
             },
           },
@@ -32,9 +47,7 @@ const createNavigation = (isLogged = false) => createStackNavigator(
   },
   {
     initialRouteName: isLogged ? 'Home' : 'Login',
-    navigationOptions: ({ navigation }) => ({
-      headerRight: <HeaderRight navigation={navigation} />,
-    }),
+    headerMode: 'none',
   },
 );
 
